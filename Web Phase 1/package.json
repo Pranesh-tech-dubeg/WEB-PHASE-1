@@ -1,0 +1,19 @@
+{
+  "name": "new-golden-enterprises",
+  "version": "1.0.0",
+  "description": "New Golden Enterprises — Premium Architectural Window & Door Systems with 3D Interactive Studio",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "architectural-windows",
+    "threejs",
+    "luxury-architecture",
+    "3d-visualizer"
+  ],
+  "author": "New Golden Enterprises",
+  "license": "ISC"
+}

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architectural Window Systems — 3D Studio | NEW GOLDEN ENTERPRISES</title>
+  
+  <meta name="description" content="Explore New Golden Enterprises premium architectural window and door systems in an interactive 3D studio. Customize finishes, inspect glass options, and operate mechanisms.">
+  
+  <!-- Google Fonts: Cinzel, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Import Map for Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./js/vendor/three.module.js",
+        "three/addons/": "./js/vendor/"
+      }
+    }
+  </script>
+</head>
+<body class="product-page-body">
+
+  <!-- ======================================================================
+       SPACIOUS LUXURY HEADER & TITLE BAR
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-container container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="New Golden Enterprises Home">
+        <div class="brand-emblem">
+          <span class="brand-emblem-text">N</span>
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">NEW GOLDEN ENTERPRISES</span>
+          <span class="brand-tagline">ARCHITECTURAL SYSTEMS</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation (Spacious & Minimal) -->
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#products" class="nav-link active">Products &amp; 3D</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="index.html#products" class="btn btn-outline btn-sm">All 8 Systems</a>
+        <!-- Mobile Hamburger Toggle -->
+        <button class="hamburger" id="hamburger-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-top">
+      <div class="brand-logo" style="margin-bottom: 2.5rem;">
+        <div class="brand-emblem">
+          <span class="brand-emblem-text">N</span>
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">NEW GOLDEN ENTERPRISES</span>
+          <span class="brand-tagline">ARCHITECTURAL SYSTEMS</span>
+        </div>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="index.html#products" class="mobile-nav-link">Products &amp; 3D</a></li>
+        <li><a href="index.html#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-bottom">
+      <a href="index.html#products" class="btn btn-gold" style="width: 100%;">View All Products</a>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       BREADCRUMB & BACK NAVIGATION BAR
+       ====================================================================== -->
+  <section class="product-top-bar">
+    <div class="container product-top-bar-inner">
+      <div class="breadcrumb-trail">
+        <a href="index.html" class="breadcrumb-link">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="index.html#products" class="breadcrumb-link">Product Collection</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current" id="product-breadcrumb-name">System 3D Studio</span>
+      </div>
+
+      <a href="index.html#products" class="btn-back-collection">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>Back to All Products</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       3D INTERACTIVE PRODUCT EXPERIENCE SECTION
+       ====================================================================== -->
+  <section class="product-3d-experience-section section-spacing-sm">
+    <div class="container">
+      <div class="product-3d-grid">
+        
+        <!-- Left: 3D Viewport Box -->
+        <div class="viewport-card" id="viewport-card">
+          <!-- Viewport Toolbar -->
+          <div class="viewport-toolbar">
+            <div class="system-tag-badge">
+              <span class="live-dot"></span>
+              <span>Interactive 3D Studio</span>
+            </div>
+
+            <!-- Viewport Utility Controls -->
+            <div class="quick-tools">
+              <button class="tool-icon-btn" id="btn-zoom-in" title="Zoom In (+)" aria-label="Zoom In">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </button>
+              <button class="tool-icon-btn" id="btn-zoom-out" title="Zoom Out (-)" aria-label="Zoom Out">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </button>
+              <button class="tool-icon-btn" id="btn-reset-view" title="Reset Camera View" aria-label="Reset Camera View">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              </button>
+              <button class="tool-icon-btn active" id="btn-toggle-rotate" title="Toggle Auto-Rotation" aria-label="Toggle Auto-Rotation">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              </button>
+              <button class="tool-icon-btn" id="btn-fullscreen" title="Full Screen View" aria-label="Toggle Fullscreen">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas Element -->
+          <div class="canvas-container" id="product-canvas-container">
+            <canvas id="three-canvas"></canvas>
+
+            <!-- Loading Spinner -->
+            <div class="viewport-loader" id="viewport-loader">
+              <div class="loader-spinner"></div>
+              <span class="loader-text">Loading Architectural 3D Geometry...</span>
+            </div>
+
+            <!-- WebGL Fallback -->
+            <div class="webgl-fallback" id="webgl-fallback">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;">Interactive 3D Viewer</h3>
+              <p style="color: var(--text-secondary); max-width: 440px; font-size: 0.9rem;">
+                WebGL is loading. You can review the complete specifications and architectural finishes below.
+              </p>
+            </div>
+          </div>
+
+          <!-- Drag Hint Pill (Clean, without scroll trap) -->
+          <div class="viewport-hint-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            <span>DRAG TO ROTATE 360° • USE + / - TO ZOOM</span>
+          </div>
+
+          <!-- Interactive Sash Action Floating Pill -->
+          <button class="sash-action-pill" id="btn-sash-action" title="Operate sash mechanism">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+            <span id="sash-action-text">Operate Sash Mechanism</span>
+          </button>
+        </div>
+
+        <!-- Right: Customizer Sidebar & Engineering Details -->
+        <div class="customizer-sidebar">
+          <div class="customizer-scroll-body">
+            <!-- Active Product Meta -->
+            <div class="product-meta-header">
+              <div class="meta-series-tag" id="product-series-tag">SERIES SPECIFICATION</div>
+              <h1 class="product-detail-title" id="product-title">Architectural Window System</h1>
+              <p class="product-detail-headline text-gold" id="product-hero-headline">Precision Engineering</p>
+              <p class="meta-product-desc" id="product-long-desc">
+                Architectural fenestration system crafted for performance, light, and modern spatial harmony.
+              </p>
+            </div>
+
+            <!-- Estimated Price Card -->
+            <div class="product-price-box">
+              <div class="price-header-row">
+                <span class="price-label">FABRICATION ESTIMATE</span>
+                <span class="price-badge">Custom Sizing Available</span>
+              </div>
+              <div class="price-value-row">
+                <span class="price-amount" id="product-price-val">₹850 – ₹1,550 / sq.ft</span>
+              </div>
+              <p class="price-note">*Estimated baseline. Final quote depends on opening dimensions, glazing specification &amp; hardware choice.</p>
+            </div>
+
+            <!-- Frame Finish Selector -->
+            <div class="customizer-block">
+              <div class="customizer-block-header">
+                <span class="customizer-label">Frame Architectural Finish</span>
+                <span class="customizer-active-val" id="active-finish-label">Matte White (RAL 9016)</span>
+              </div>
+              <div class="finish-swatches-grid">
+                <button class="swatch-btn active" data-finish="matte-white" title="Matte White (RAL 9016)" aria-label="Matte White">
+                  <span class="swatch-color" style="background-color: #F3F3F1; border: 1px solid #D5D5CE;"></span>
+                  <span class="swatch-name">White</span>
+                </button>
+                <button class="swatch-btn" data-finish="anthracite" title="Anthracite Grey (RAL 7016)" aria-label="Anthracite Grey">
+                  <span class="swatch-color" style="background-color: #2E3338;"></span>
+                  <span class="swatch-name">Anthracite</span>
+                </button>
+                <button class="swatch-btn" data-finish="black" title="Obsidian Black Anodized" aria-label="Obsidian Black">
+                  <span class="swatch-color" style="background-color: #161616;"></span>
+                  <span class="swatch-name">Black</span>
+                </button>
+                <button class="swatch-btn" data-finish="aluminium" title="Natural Brushed Aluminium" aria-label="Natural Aluminium">
+                  <span class="swatch-color" style="background-color: #C8CDD3; border: 1px solid #A8ADB3;"></span>
+                  <span class="swatch-name">Aluminium</span>
+                </button>
+                <button class="swatch-btn" data-finish="wood" title="Architectural Warm Walnut" aria-label="Warm Walnut">
+                  <span class="swatch-color" style="background-color: #5C3B23;"></span>
+                  <span class="swatch-name">Walnut</span>
+                </button>
+                <button class="swatch-btn" data-finish="gold" title="Satin Champagne Gold" aria-label="Champagne Gold">
+                  <span class="swatch-color" style="background-color: #B99A5B;"></span>
+                  <span class="swatch-name">Gold</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Glass Glazing Selector -->
+            <div class="customizer-block">
+              <div class="customizer-block-header">
+                <span class="customizer-label">Architectural Glazing Option</span>
+                <span class="customizer-active-val" id="active-glass-label">Ultra-Clear Insulated Double Glazing</span>
+              </div>
+              <div class="glass-pills-wrap">
+                <button class="glass-pill-btn active" data-glass="clear">
+                  <span class="glass-dot" style="background-color: #E8F4F8; border: 1px solid #B0D5E5;"></span>
+                  <span>Ultra-Clear Double IGU</span>
+                </button>
+                <button class="glass-pill-btn" data-glass="acoustic-lowe">
+                  <span class="glass-dot" style="background-color: #B8DFD6;"></span>
+                  <span>Acoustic Low-E Tint</span>
+                </button>
+                <button class="glass-pill-btn" data-glass="bronze">
+                  <span class="glass-dot" style="background-color: #B69D83;"></span>
+                  <span>Solar Bronze Guard</span>
+                </button>
+                <button class="glass-pill-btn" data-glass="frosted">
+                  <span class="glass-dot" style="background-color: #E9EFF2; border: 1px dashed #A0B0B8;"></span>
+                  <span>Satin Frosted Privacy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Specs In Sidebar -->
+            <div class="customizer-block customizer-specs-block">
+              <div class="customizer-block-header">
+                <span class="customizer-label">Key Engineering Profile</span>
+              </div>
+              <div class="sidebar-quick-specs" id="sidebar-quick-specs">
+                <!-- Dynamically populated from products-data.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="customizer-actions">
+            <a href="#contact" class="btn btn-gold" style="width: 100%;">
+              <span>Connect with Studio Specialist</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       ARCHITECTURAL SPECIFICATIONS & AUTHENTIC PHOTOGRAPHY
+       ====================================================================== -->
+  <section class="section-spacing bg-secondary">
+    <div class="container">
+      <div class="specs-editorial-grid">
+        <!-- Left: Authentic Client Product Photography -->
+        <div class="editorial-media-col reveal-fade-up">
+          <div class="editorial-img-frame">
+            <img id="product-real-img" src="" alt="Authentic Product Architecture" class="editorial-product-img" loading="lazy">
+          </div>
+          <div class="editorial-caption-badge">
+            <span class="caption-label">Authentic Production Reference</span>
+            <span class="caption-sub">Fabricated by New Golden Enterprises</span>
+          </div>
+        </div>
+
+        <!-- Right: Technical Engineering Metrics & Highlights -->
+        <div class="editorial-data-col reveal-fade-up delay-2">
+          <span class="section-tag">Engineering Specifications</span>
+          <h2 class="section-title">PRECISION IN EVERY MILLIMETER.</h2>
+          <p class="section-subtitle" style="margin-bottom: 2rem;">
+            Every frame profile is extruded and fabricated to precise architectural tolerances, ensuring hermetic perimeter weatherproofing, acoustic serenity, and smooth lifelong mechanics.
+          </p>
+
+          <!-- Specifications Grid -->
+          <div class="product-specs-grid" id="product-specs-grid">
+            <!-- Dynamically populated from products-data.js -->
+          </div>
+
+          <!-- Engineering Features Checklist -->
+          <div class="product-features-wrap">
+            <h4 class="features-heading">Performance &amp; Hardware Highlights</h4>
+            <ul class="product-features-list" id="product-features-list">
+              <!-- Dynamically populated from products-data.js -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       EXPLORE ALL 8 SYSTEMS IN 3D (QUICK SWITCHER)
+       ====================================================================== -->
+  <section class="section-spacing" id="other-systems-section">
+    <div class="container">
+      <div class="reveal-fade-up" style="margin-bottom: 3rem;">
+        <span class="section-tag">Explore The Entire Portfolio</span>
+        <h2 class="section-title">INSPECT ALL 8 SYSTEMS IN 3D.</h2>
+        <p class="section-subtitle">
+          Select any architectural window or door system below to inspect its dedicated 3D model, customize materials, and review engineering specifications.
+        </p>
+      </div>
+
+      <!-- Systems Grid -->
+      <div class="other-systems-grid" id="other-systems-grid">
+        <!-- Dynamically populated with other 7 systems -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       STUDIO CONSULTATION SECTION
+       ====================================================================== -->
+  <section class="section-spacing bg-secondary" id="contact">
+    <div class="container">
+      <div class="contact-editorial-header reveal-fade-up">
+        <span class="section-tag">Direct Studio Communication</span>
+        <h2 class="section-title">CONNECT WITH OUR ARCHITECTURAL TEAM.</h2>
+        <p class="section-subtitle">
+          Whether planning a luxury residence, commercial facade, or bespoke structural glazing, our fenestration engineers are available for technical consultations, CAD profiles, and material samples.
+        </p>
+      </div>
+
+      <div class="contact-cards-grid reveal-fade-up delay-1">
+        <div class="contact-info-card">
+          <div class="contact-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="contact-card-title">Telephone Inquiries</h3>
+          <p class="contact-card-text">Speak directly with our technical fenestration specialists.</p>
+          <span class="contact-card-value">+91 [ADD COMPANY PHONE]</span>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 class="contact-card-title">Email Correspondence</h3>
+          <p class="contact-card-text">Send architectural blueprints, window schedules, and CAD files.</p>
+          <span class="contact-card-value">inquiry@newgoldenenterprises.com</span>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="contact-card-title">Showroom &amp; Works</h3>
+          <p class="contact-card-text">Inspect full-scale mockups and architectural finishes in person.</p>
+          <span class="contact-card-value">[ADD COMPANY ADDRESS / SHOWROOM LOCATION]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <span class="footer-brand-name">NEW GOLDEN ENTERPRISES</span>
+          <span class="footer-brand-tagline">PREMIUM ARCHITECTURAL SYSTEMS</span>
+          <p class="footer-desc">
+            Specializing in high-performance window, door, and ventilation systems designed for light, engineered for life, and built around your architectural vision.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="index.html#products" class="footer-link">Product Collection</a></li>
+            <li><a href="index.html#projects" class="footer-link">Projects</a></li>
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">All 8 Systems</h4>
+          <ul class="footer-links-list">
+            <li><a href="product.html?id=casement-windows" class="footer-link">Casement Windows 3D</a></li>
+            <li><a href="product.html?id=sliding-windows" class="footer-link">Sliding Glass Systems 3D</a></li>
+            <li><a href="product.html?id=tilt-and-turn" class="footer-link">Tilt &amp; Turn German Systems 3D</a></li>
+            <li><a href="product.html?id=fixed-windows" class="footer-link">Fixed Picture Glass 3D</a></li>
+            <li><a href="product.html?id=french-windows" class="footer-link">French &amp; Arched Windows 3D</a></li>
+            <li><a href="product.html?id=awning-top-hung" class="footer-link">Awning Top-Hung Windows 3D</a></li>
+            <li><a href="product.html?id=bathroom-ventilators" class="footer-link">Bathroom Ventilators 3D</a></li>
+            <li><a href="product.html?id=architectural-systems" class="footer-link">Architectural Folding Systems 3D</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Contact &amp; Studio</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 [ADD COMPANY PHONE]</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>inquiry@newgoldenenterprises.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>[ADD COMPANY ADDRESS / SHOWROOM LOCATION]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 NEW GOLDEN ENTERPRISES. All Rights Reserved. Architectural Fenestration Systems.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Detail Script -->
+  <script type="module" src="js/product-detail.js"></script>
+</body>
+</html>
